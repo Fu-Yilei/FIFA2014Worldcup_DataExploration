@@ -1,0 +1,26 @@
+{
+  "description": "Data on all 736 players playing in the 2014 football world cup in Brazil.", 
+  "license": {
+    "type": "notspecified", 
+    "title": "License not specified"
+  }, 
+  "author": {
+    "name": "David Bauer", 
+    "email": "david.bauer@tageswoche.ch"
+  }, 
+  "keywords": [
+    "football", 
+    "soccer"
+  ], 
+  "title": "FIFA World Cup 2014 - All Players", 
+  "resources": [
+    {
+      "url": "https://docs.google.com/a/tageswoche.ch/spreadsheets/d/1i7aUrjBcle7XtEbRUqQrpSLi6cGxIIE1MpJyPpfdg5Y/edit#gid=1425104045", 
+      "title": "Spreadsheet with all player data", 
+      "description": "Example analysis: http://www.tageswoche.ch/de/2014_22/sport/660270", 
+      "name": "spreadsheet-with-all-player-data", 
+      "format": "google spreadsheet"
+    }
+  ], 
+  "name": "fifa-world-cup-2014-all-players"
+}

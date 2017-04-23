@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+
+<body class="container" style="padding-top: 70px;">
+    <div class="page-header">
+        <h1>Home page<small>Waiting for edit.</small></h1>
+    </div>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/" class="app-bar-element">
+                        Our Football match search system
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="/teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groups<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/teams">Overview</a></li>
+                        <li><a href="#">Group A</a></li>
+                        <li><a href="#">Group B</a></li>
+                        <li><a href="#">Group C</a></li>
+                        <li><a href="#">Group D</a></li>
+                        <li><a href="#">Group E</a></li>
+                        <li><a href="#">Group F</a></li>
+                        <li><a href="#">Group G</a></li>
+                        <li><a href="#">Group H</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/stats" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/stats">Overview</a></li>
+                        <li><a href="#">Refrees</a></li>
+                    </ul>
+                </li>
+                <li><a href="/tables">Tables</a></li>
+                <li><a href="/matches">Matches</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="row">
+        <a name="basic"></a>
+
+        <div class="col-md-4">
+            <img class="img-rounded img-responsive" src="https://upload.wikimedia.org/wikipedia/en/e/e8/WC-2014-Brasil.svg ">
+        </div>
+        <div class="col-md-8">
+
+            <h2>World Cup</h2>
+            <p class="lead text-left text-capitalize">
+                Write some introduciton here.
+            </p><br>
+            <button type="button" class="btn btn-primary" onclick="window.open( 'https://en.wikipedia.org/wiki/2014_FIFA_World_Cup') ">See more on wikipedia</button>
+            <br>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>#RSS -- To be done in Flask!</h2>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
+    <script src="/static/js/bootstrap.min.js "></script>
+    <script src="/static/js/myjs.js "></script>
+</body>
+
+</html>

@@ -9,6 +9,13 @@
 
 <body class="container" style="padding-top: 70px;">
     <h1>Show all teams here, load from database</h1>
+	<div>
+		{% if name %}
+		  <h1>{{ name }}</h1>
+		{% else %}
+		  <h1>Overview</h1>
+		{% endif %}
+	</div>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
     <script src="/static/js/bootstrap.min.js "></script>
     <script src="/static/js/myjs.js "></script>

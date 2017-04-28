@@ -9,14 +9,26 @@ from flask import Flask, url_for
 from flask import render_template
 
 app = Flask(__name__)
+import sqlite3 as lite
+import sys
 
 @app.route('/')
 def index(name=None):
     return render_template('index.html', name=name)
 
-@app.route('/teams')
+# @app.route('/questions/<int:question_id>'):    #int has been used as a filter that only integer will be passed in the url otherwise it will give a 404 error
+@app.route('/teams/')
+@app.route('/teams/<name>')
 def team(name=None):
-    return render_template('teams.html', name=name)
+	"""
+	con = lite.connect("fifa2014.db")
+	cur = con.cursor()
+	cur.execute("select id, title, author from books")
+	rows = cur.fetchall()
+ 	
+	return render_template("index.html", **locals())
+	"""
+	return render_template('teams.html', name=name)
 
 @app.route('/tables')
 def table(name=None):

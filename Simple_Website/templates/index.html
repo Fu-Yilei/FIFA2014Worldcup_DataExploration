@@ -23,15 +23,15 @@
                 <li class="dropdown">
                     <a href="/teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groups<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/teams">Overview</a></li>
-                        <li><a href="#">Group A</a></li>
-                        <li><a href="#">Group B</a></li>
-                        <li><a href="#">Group C</a></li>
-                        <li><a href="#">Group D</a></li>
-                        <li><a href="#">Group E</a></li>
-                        <li><a href="#">Group F</a></li>
-                        <li><a href="#">Group G</a></li>
-                        <li><a href="#">Group H</a></li>
+                        <li><a href={{ url_for('team'}}>Overview</a></li>
+                        <li><a href={{ url_for('team', name='Group A') }}>Group A</a></li>
+                        <li><a href={{ url_for('team', name='Group B') }}>Group B</a></li>
+                        <li><a href={{ url_for('team', name='Group C') }}>Group C</a></li>
+                        <li><a href={{ url_for('team', name='Group D') }}>Group D</a></li>
+                        <li><a href={{ url_for('team', name='Group E') }}>Group E</a></li>
+                        <li><a href={{ url_for('team', name='Group F') }}>Group F</a></li>
+                        <li><a href={{ url_for('team', name='Group G') }}>Group G</a></li>
+                        <li><a href={{ url_for('team', name='Group H') }}>Group H</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

@@ -7,6 +7,10 @@ Created on Sun Apr 23 10:59:55 2017
 
 from flask import Flask, url_for
 from flask import render_template
+from urllib import *
+from bs4 import BeautifulSoup
+
+
 
 app = Flask(__name__)
 

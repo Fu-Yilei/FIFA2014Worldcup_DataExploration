@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 """
 Created on Sun Apr 23 10:59:55 2017
@@ -6,54 +5,30 @@ Created on Sun Apr 23 10:59:55 2017
 @author: Frank Fu
 """
 
-from flask import Flask, url_for
-from flask import render_template
-from urllib import *
-from bs4 import BeautifulSoup
-
-
-
-app = Flask(__name__)
-
-@app.route('/')
-def index(name=None):
-    return render_template('index.html', name=name)
-
-@app.route('/teams')
-def team(name=None):
-    return render_template('teams.html', name=name)
-
-@app.route('/tables')
-def table(name=None):
-    return render_template('tables.html', name=name)
-
-@app.route('/matches')
-def match(name=None):
-    return render_template('matches.html', name=name)
-
-@app.route('/stats')
-def stat(name=None):
-    return render_template('stats.html', name=name)
-if __name__ == '__main__':
-=======
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Apr 23 10:59:55 2017
-
-@author: Frank Fu
-"""
-
-from flask import Flask, url_for
-from flask import render_template
-
-app = Flask(__name__)
+from flask import Flask, render_template, redirect, url_for
+import flask
 import sqlite3 as lite
 import sys
+import urllib
+from bs4 import BeautifulSoup
+
+app = Flask(__name__)
+
+def read_news():
+    html = urllib.request.urlopen("http://www.espnfc.com/index").read()
+    soup = BeautifulSoup(html, "lxml")
+    all_news = (soup.findChildren('h2'))
+    f=open('./static/news.json','w')
+    for i in range(5):
+        f.write(str(all_news[i]))
+    f.close()
+    return all_news
+
 
 @app.route('/')
 def index(name=None):
-    return render_template('index.html', name=name)
-
+    read_news()
+    return render_template('index.html',  name = name)
 # @app.route('/questions/<int:question_id>'):    #int has been used as a filter that only integer will be passed in the url otherwise it will give a 404 error
 @app.route('/teams/')
 @app.route('/teams/<name>')
@@ -80,5 +55,4 @@ def match(name=None):
 def stat(name=None):
     return render_template('stats.html', name=name)
 if __name__ == '__main__':
->>>>>>> aa9376cc21c258f5cccdced5632ed9631e003499
     app.run()

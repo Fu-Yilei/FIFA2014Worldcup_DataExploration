@@ -11,8 +11,16 @@ import sqlite3 as lite
 import sys
 import urllib
 from bs4 import BeautifulSoup
+from flask.ext.sqlalchemy import SQLALchemy
+from flask.ext.script import Manager
+from sqlalchemy import text
+
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:fuyilei@96@localhost:3306/fifa2014'
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+db = SQLAlchemy(app)
+manager = Manager(app)
 
 def read_news():
     html = urllib.request.urlopen("http://www.espnfc.com/index").read()
@@ -33,15 +41,8 @@ def index(name=None):
 @app.route('/teams/')
 @app.route('/teams/<name>')
 def team(name=None):
-	"""
-	con = lite.connect("fifa2014.db")
-	cur = con.cursor()
-	cur.execute("select id, title, author from books")
-	rows = cur.fetchall()
- 	
-	return render_template("index.html", **locals())
-	"""
-	return render_template('teams.html', name=name)
+    result = db.engine.execute("select * from clubs")
+    return render_template('teams.html',  name=name)
 
 @app.route('/tables')
 def table(name=None):

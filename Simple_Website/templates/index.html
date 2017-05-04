@@ -12,74 +12,71 @@
 
         function listener() {
             news = this.responseText;
-            console.log(news);
+            // console.log(news);
             document.getElementById("news").innerHTML = news;
         }
     </script>
 </head>
 
 
-<body class="container" style="padding-top: 70px;">
-    <div class="page-header">
+<body class="container">
+    <div class="page-header ">
         <h1>Home page<small>Waiting for edit.</small></h1>
     </div>
-    <nav class="navbar navbar-inverse navbar-static-top">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="/" class="app-bar-element">
-                        Our Football match search system
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="/" class="app-bar-element">
+                        2014 FIFA
                     </a>
-                </li>
-                <li class="dropdown">
-                    <a href="/teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groups<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href={{ url_for( 'team')}}>Overview</a></li>
-                        <li><a href={{ url_for( 'team', name='Group A' ) }}>Group A</a></li>
-                        <li><a href={{ url_for( 'team', name='Group B' ) }}>Group B</a></li>
-                        <li><a href={{ url_for( 'team', name='Group C' ) }}>Group C</a></li>
-                        <li><a href={{ url_for( 'team', name='Group D' ) }}>Group D</a></li>
-                        <li><a href={{ url_for( 'team', name='Group E' ) }}>Group E</a></li>
-                        <li><a href={{ url_for( 'team', name='Group F' ) }}>Group F</a></li>
-                        <li><a href={{ url_for( 'team', name='Group G' ) }}>Group G</a></li>
-                        <li><a href={{ url_for( 'team', name='Group H' ) }}>Group H</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="/stats" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/stats">Overview</a></li>
-                        <li><a href="#">Refrees</a></li>
-                    </ul>
-                </li>
-                <li><a href="/tables">Tables</a></li>
-                <li><a href="/matches">Matches</a></li>
-            </ul>
-        </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groups<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href={{ url_for( 'team', name='Group A' ) }}>Group A</a></li>
+                    <li><a href={{ url_for( 'team', name='Group B' ) }}>Group B</a></li>
+                    <li><a href={{ url_for( 'team', name='Group C' ) }}>Group C</a></li>
+                    <li><a href={{ url_for( 'team', name='Group D' ) }}>Group D</a></li>
+                    <li><a href={{ url_for( 'team', name='Group E' ) }}>Group E</a></li>
+                    <li><a href={{ url_for( 'team', name='Group F' ) }}>Group F</a></li>
+                    <li><a href={{ url_for( 'team', name='Group G' ) }}>Group G</a></li>
+                    <li><a href={{ url_for( 'team', name='Group H' ) }}>Group H</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="/stats" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/stats">Overview</a></li>
+                    <li><a href="#">Refrees</a></li>
+                </ul>
+            </li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/matches">Matches</a></li>
+        </ul>
     </nav>
     <br>
-    <div class="row">
-        <a name="basic"></a>
+    <div class="row ">
+        <a name="basic "></a>
 
-        <div class="col-md-4">
-            <img class="img-rounded img-responsive" src="https://upload.wikimedia.org/wikipedia/en/e/e8/WC-2014-Brasil.svg ">
+        <div class="col-md-4 ">
+            <img class="img-rounded img-responsive " src="https://upload.wikimedia.org/wikipedia/en/e/e8/WC-2014-Brasil.svg ">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 ">
 
             <h2>World Cup</h2>
-            <p class="lead text-left text-capitalize">
+            <p class="lead text-left text-capitalize ">
                 Write some introduciton here.
             </p><br>
-            <button type="button" class="btn btn-primary" onclick="window.open( 'https://en.wikipedia.org/wiki/2014_FIFA_World_Cup') ">See more on wikipedia</button>
+            <button type="button " class="btn btn-primary " onclick="window.open( 'https://en.wikipedia.org/wiki/2014_FIFA_World_Cup') ">See more on wikipedia</button>
             <br>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row ">
+        <div class="col-md-4 ">
             <h1>Recent FIFA news</h1>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 ">
             <p id="news">
             </p>
         </div>

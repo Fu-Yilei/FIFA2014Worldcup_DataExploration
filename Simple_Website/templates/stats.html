@@ -44,7 +44,7 @@
                 <a href="/stats" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="/stats">Overview</a></li>
-                    <li><a href="#">Refrees</a></li>
+                    <li><a href={{ url_for( 'stat', name='referees' ) }}Refrees</a></li>
                 </ul>
             </li>
             <li><a href="/search">Search</a></li>
@@ -52,6 +52,32 @@
         </ul>
     </nav>
     <br>
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Born</th>
+                <th>Country</th>
+                <th>Yellow Cards</th>
+                <th>Yellow To Red Cards</th>
+                <th>Red Cards</th>
+                <th>Country ID</th>
+            </tr>
+            {% for row in rows %}
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+
+
+    </div>
 
     <script src=" https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
     <script src="/static/js/bootstrap.min.js "></script>

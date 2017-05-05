@@ -33,7 +33,7 @@
                 <a href="/stats" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="/stats">Overview</a></li>
-                    <li><a href="#">Refrees</a></li>
+                    <li><a href={{ url_for( 'stat', name='referees' ) }}>Refrees</a></li>
                 </ul>
             </li>
             <li><a href="/search">Search</a></li>

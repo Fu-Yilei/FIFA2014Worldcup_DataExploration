@@ -40,13 +40,7 @@ def group(name=None):
     rows = cur.fetchall()
     return render_template('groups.html', **locals())
 
-@app.route('/clubs/<id>)
-def club(name=None):
-    teamid = id
-    con = lite.connect("fifa2014.db")
-    cur = con.cursor()
-    cur.execute("select * from clubs where clubid = "+teamid)
-    return render_template('clubs.html',**locals())
+
 
 @app.route('/search', methods = ["GET","POST"])
 def search(name=None):
@@ -56,21 +50,26 @@ def search(name=None):
         search = request.form["search"]
         con = lite.connect("fifa2014.db")
         cur = con.cursor()
-        cur.execute("select * from players where Name like \'%"+str(search)+"%\'")
+        cur.execute("select * from players inner join clubs on players.club_id = clubs.club_id where Name like \'%"+str(search)+"%\'")
         rows = cur.fetchall()                                                                                                                                                                                                                                                                                                                                                           
         return render_template('search.html',  **locals())
-
 @app.route('/matches')
 def match(name=None):
     return render_template('matches.html', name=name)
 
-@app.route('/stats/<name>')
+@app.route('/stats')
 def stat(name=None):
+    stat_type = name
     con = lite.connect("fifa2014.db")
     cur = con.cursor()
     cur.execute("select * from \'"+str(name)+"\'")
+    
+    if stat_type == "referees":
+        cur.execute("select * from \'"+str(name)+"\'")
+    elif stat_type == "players":
+        pass
+
     rows = cur.fetchall()
     return render_template('stats.html', **locals())
-
 if __name__ == '__main__':
     app.run()

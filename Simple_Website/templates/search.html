@@ -56,13 +56,20 @@
                 <th>Position</th>
                 <th>Age</th>
                 <th>Birthday</th>
+                <th>Club</th>
             </tr>
             {% for row in rows %}
             <tr>
+                <script>
+                    name = {{row13}};
+                    console.log(name);
+                </script>
+                <!--<a href="#" data-toggle="tooltip" title data-original-title=""></a>-->
                 <td>{{row[1]}}</td>
                 <td>{{row[2]}}</td>
                 <td>{{row[7]}}</td>
                 <td>{{row[8]}}/{{row[9]}}/{{row[10]}}</td>
+                <td>{{row[14]}}</td>
             </tr>
             {%endfor%}
         </table>
@@ -71,6 +78,11 @@
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
     <script src="/static/js/bootstrap.min.js "></script>
     <script src="/static/js/myjs.js "></script>
+    <script>
+        $(function() {
+            $("[data-toggle='tooltip']").tooltip();
+        });
+    </script>
 </body>
 
 </html>

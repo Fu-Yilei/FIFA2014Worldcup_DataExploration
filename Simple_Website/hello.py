@@ -33,12 +33,20 @@ def index(name=None):
 # @app.route('/questions/<int:question_id>'):    #int has been used as a filter that only integer will be passed in the url otherwise it will give a 404 error
 @app.route('/groups/<name>')
 def group(name=None):
-    teamname = name
+    groupname = name
     con = lite.connect("fifa2014.db")
     cur = con.cursor()
-    cur.execute("select * from group_stage where Group_Name = \'"+str(name[-1])+"\'")
+    cur.execute("select * from group_stage where Group_Name = \'"+str(groupname[-1])+"\'")
     rows = cur.fetchall()
     return render_template('groups.html', **locals())
+
+@app.route('/clubs/<id>)
+def club(name=None):
+    teamid = id
+    con = lite.connect("fifa2014.db")
+    cur = con.cursor()
+    cur.execute("select * from clubs where clubid = "+teamid)
+    return render_template('clubs.html',**locals())
 
 @app.route('/search', methods = ["GET","POST"])
 def search(name=None):

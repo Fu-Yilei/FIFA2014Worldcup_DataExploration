@@ -4,20 +4,17 @@
 <head>
 
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <script src=" https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
-    <script>
-        var count = 0
-    </script>
+
 </head>
 
-
 <body class="container">
+    <div class="page-header ">
+        <h1> This is data from {{name}}</h1>
+    </div>
     <nav class="navbar navbar-default">
         <ul class="nav navbar-nav">
             <li>
-                <a href="/" class="app-bar-element">
-                        2014 FIFA
-                    </a>
+                <a href="/" class="app-bar-element">2014 FIFA</a>
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groups<span class="caret"></span></a>
@@ -46,50 +43,20 @@
         </ul>
     </nav>
     <br>
-    <table class="table table-striped">
-        <tr>
-            <th>Date</th>
-            <th>Team1</th>
-            <th>Team2</th>
-            <th>Stage</th>
-            <th>Score</th>
-        </tr>
+    <div>
+        <table class="table table-striped">
+            {% for row in rows %}
+            <tr>
+                <td>{{row[2]}} made a comment about the match {{row[7]}} VS {{row[8]}} on {{row[5]}}: "{{row[1]}}"</td>
+            </tr>
+            {%endfor%}
+        </table>
 
-        {% for row in rows %}
-        <script>
-            count += 1;
-        </script>
-        <tr>
-            <td>{{row[2]}}</td>
-            <td>{{row[4]}}</td>
-            <td>{{row[5]}}</td>
-            <td>{{row[6]}}</td>
-            <td><a href=/matchdata/{{row[0]}}>{{row[8]}}:{{row[9]}}</a></td>
-        </tr>
-        <tr>
-            <form action="/matches" method="POST">
-                <td>
-                    Add Comment to this match
-                </td>
-                <td colspan="2">
-                    <input type="text" name="comment" placeholder="Your Comment">
-                </td>
-                <td colspan="1">
-                    <input type="text" name="author" placeholder="Your Name">
-                    <input type="hidden" name="matchid" id="ii" value={{row[0]}}>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-default">Save</button>
-                </td>
-            </form>
-        </tr>
-        {%endfor%}
 
-    </table>
-
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
     <script src="/static/js/bootstrap.min.js "></script>
     <script src="/static/js/myjs.js "></script>
-    <br><br><br>
 </body>
 
 </html>

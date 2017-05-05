@@ -96,14 +96,16 @@ def matchdata(name = None):
     return render_template('matchdata.html', **locals())
 
 @app.route('/stats/<name>')
-def stat(name=None):
+@app.route('/stats/<name>/<sort>')
+def stat(name=None, sort=None):
     con = lite.connect("fifa2014.db")
     cur = con.cursor()
 
     if name == "referees":
-        cur.execute("select * from referees")
+        exstring = "select Name, Birthday_Year, Country_Name, Yellow_Cards, Yellow_To_Red_Cards, Red_Cards \
+                        from referees r, countries c where c.Country_ID = r.Country"
     elif name == "players":
-        cur.execute("select p.Name, p.Pos, P.Jersey_No, c.Country_Name, cl.Club_Name, \
+        exstring = "select p.Name, p.Pos, P.Jersey_No, c.Country_Name, cl.Club_Name, \
                                     g.goal_count, g.penalty_goals, g.own_goals, \
                                     d.total_yc, d.total_rc \
                     from players p, countries c, clubs cl \
@@ -122,8 +124,11 @@ def stat(name=None):
                                 from discipline \
                                 group by Player_ID) as d \
                     on p.Id = d.Player_ID \
-                    where p.Country_ID = c.Country_ID and p.Club_ID = cl.Club_ID")
+                    where p.Country_ID = c.Country_ID and p.Club_ID = cl.Club_ID"
+    if not sort == None:
+        exstring += " order by {} desc".format(sort)
 
+    cur.execute( exstring )
     rows = cur.fetchall()
     return render_template('stats.html', **locals())
 if __name__ == '__main__':

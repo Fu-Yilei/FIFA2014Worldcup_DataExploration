@@ -58,16 +58,16 @@
         <table class="table table-striped">
             <tr>
                 {% if name == "players" %}
-                <th>Name</th>
-                <th>Position</th>
-                <th>Jersey</th>
-                <th>Country</th>
-                <th>Club</th>
-                <th>Goals</th>
-                <th>Penalty Goals</th>
-                <th>Own Goals</th>
-                <th>Total Yellow Cards</th>
-                <th>Total Red Cards</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='Name' ) }}>Name</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='Pos' ) }}>Position</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='Jersey_No' ) }}>Jersey</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='Country_Name' ) }}>Country</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='Club_Name' ) }}>Club</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='goal_count' ) }}>Goals</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='penalty_goals' ) }}>Penalty Goals</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='own_goals' ) }}>Own Goals</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='total_yc' ) }}>Total Yellow Cards</th>
+                <th><a href={{ url_for( 'stat', name='players', sort='total_rc' ) }}>Total Red Cards</th>
             </tr>
             {% for row in rows %}
             <tr>
@@ -83,12 +83,12 @@
                 <td>{{row[9]}}</td>
             </tr>
             {%endfor%} {%endif%} {% if name == "referees" %}
-            <th>Name</th>
-            <th>Born</th>
-            <th>Country</th>
-            <th>Yellow Cards</th>
-            <th>Yellow To Red Cards</th>
-            <th>Red Cards</th>
+            <th><a href={{ url_for( 'stat', name='referees', sort='Name' ) }}>Name</th>
+            <th><a href={{ url_for( 'stat', name='referees', sort='Birthday_Year' ) }}>Born</th>
+            <th><a href={{ url_for( 'stat', name='referees', sort='Country_Name' ) }}>Country</th>
+            <th><a href={{ url_for( 'stat', name='referees', sort='Yellow_Cards' ) }}>Yellow Cards</th>
+            <th><a href={{ url_for( 'stat', name='referees', sort='Yellow_To_Red_Cards' ) }}>Yellow To Red Cards</th>
+            <th><a href={{ url_for( 'stat', name='referees', sort='Red_Cards' ) }}>Red Cards</th>
             </tr>
             {% for row in rows %}
             <tr>

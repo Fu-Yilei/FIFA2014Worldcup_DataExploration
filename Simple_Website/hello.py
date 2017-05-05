@@ -31,14 +31,14 @@ def read_news():
 def index(name=None):
     return render_template('index.html', **locals())
 # @app.route('/questions/<int:question_id>'):    #int has been used as a filter that only integer will be passed in the url otherwise it will give a 404 error
-@app.route('/teams/<name>')
-def team(name=None):
+@app.route('/groups/<name>')
+def group(name=None):
     teamname = name
     con = lite.connect("fifa2014.db")
     cur = con.cursor()
     cur.execute("select * from group_stage where Group_Name = \'"+str(name[-1])+"\'")
     rows = cur.fetchall()
-    return render_template('teams.html', **locals())
+    return render_template('groups.html', **locals())
 
 @app.route('/search', methods = ["GET","POST"])
 def search(name=None):
@@ -49,7 +49,7 @@ def search(name=None):
         con = lite.connect("fifa2014.db")
         cur = con.cursor()
         cur.execute("select * from players where Name like \'%"+str(search)+"%\'")
-        rows = cur.fetchall()
+        rows = cur.fetchall()                                                                                                                                                                                                                                                                                                                                                           
         return render_template('search.html',  **locals())
 @app.route('/matches')
 def match(name=None):

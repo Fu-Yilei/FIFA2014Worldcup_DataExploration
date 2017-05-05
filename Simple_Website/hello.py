@@ -59,12 +59,18 @@ def search(name=None):
         cur.execute("select * from players where Name like \'%"+str(search)+"%\'")
         rows = cur.fetchall()                                                                                                                                                                                                                                                                                                                                                           
         return render_template('search.html',  **locals())
+
 @app.route('/matches')
 def match(name=None):
     return render_template('matches.html', name=name)
 
-@app.route('/stats')
+@app.route('/stats/<name>')
 def stat(name=None):
-    return render_template('stats.html', name=name)
+    con = lite.connect("fifa2014.db")
+    cur = con.cursor()
+    cur.execute("select * from \'"+str(name)+"\'")
+    rows = cur.fetchall()
+    return render_template('stats.html', **locals())
+
 if __name__ == '__main__':
     app.run()
